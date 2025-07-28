@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>خوش آمدید</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .welcome-box {
+      background: white;
+      padding: 30px;
+      display: inline-block;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <h1 id="welcomeMessage">در حال بارگذاری...</h1>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    const welcomeMessage = document.getElementById("welcomeMessage");
+
+    if (user && user.name) {
+      welcomeMessage.textContent = `👋 خوش آمدی، ${user.name}!`;
+    } else {
+      welcomeMessage.textContent = "خوش آمدید!";
+    }
+  </script>
+</body>
+</html>
