@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // بررسی خالی بودن فیلدها
     if (
       name.value.trim() === "" ||
       email.value.trim() === "" ||
@@ -18,16 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // بررسی ایمیل معتبر
     if (!email.value.includes("@") || !email.value.includes(".")) {
       alert("Please enter a valid email address.");
       return;
     }
 
+    // بررسی مطابقت رمزها
     if (password.value !== confirm.value) {
       alert("Passwords do not match.");
       return;
     }
 
+    // موفقیت
     alert(`Welcome, ${name.value}! Your account has been created 🎉`);
     form.reset();
   });
