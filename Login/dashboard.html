@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Welcome, <span id="userName"></span>!</h2>
+    <p>This is your dashboard.</p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script>
+    // نمایش نام کاربر
+    const name = localStorage.getItem("loggedUser");
+    if (!name) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("userName").textContent = name;
+    }
+
+    // خروج از سیستم
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("loggedUser");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
